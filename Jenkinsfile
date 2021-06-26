@@ -10,6 +10,10 @@ pipeline {
                 stage('Test') {
             steps {
                 echo 'Hello test'
+                    nodejs(nodeJSInstallationName: 'nodeInstaller') {
+                              sh 'npm -v'  //substitute with your code
+                              sh 'node -v'
+                     }
             }
         }
                 stage('Deploy') {
