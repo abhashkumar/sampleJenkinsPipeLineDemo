@@ -26,7 +26,9 @@ pipeline {
                 stage('Release') {
             steps {
                 echo 'Hello Release'
-                sh'node readingFileNode.js'
+                nodejs(nodeJSInstallationName: 'nodeInstaller') {
+                              sh 'node readingFileNode.js'
+                     }
             }
         }
     }
