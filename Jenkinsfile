@@ -26,6 +26,7 @@ pipeline {
                 stage('Release') {
             steps {
                 echo 'Hello Release'
+                sh'node readingFileNode.js'
             }
         }
     }
