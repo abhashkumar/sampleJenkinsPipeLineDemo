@@ -13,6 +13,7 @@ pipeline {
                     nodejs(nodeJSInstallationName: 'nodeInstaller') {
                               sh 'npm -v'  //substitute with your code
                               sh 'node -v'
+                              sh 'node sampleNodeWriteToFile.js'
                      }
             }
         }
