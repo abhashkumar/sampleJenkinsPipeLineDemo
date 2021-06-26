@@ -20,6 +20,7 @@ pipeline {
                 stage('Deploy') {
             steps {
                 echo 'Hello Deploy'
+                archiveArtifacts artifacts: 'mynewfile1.txt', followSymlinks: false
             }
         }
                 stage('Release') {
