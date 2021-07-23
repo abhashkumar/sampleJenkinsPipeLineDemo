@@ -13,13 +13,14 @@ pipeline {
                     nodejs(nodeJSInstallationName: 'nodeInstaller') {
                               sh 'npm -v'  //substitute with your code
                               sh 'node -v'
-                              sh 'node sampleNodeWriteToFile.js'
+                              sh 'node sampleNodeWriteToFile.js > savedContent.txt'
                      }
             }
         }
                 stage('Deploy') {
             steps {
                 echo 'Hello Deploy'
+                archiveArtifacts artifacts: 'savedContent.txt', followSymlinks: false
                 archiveArtifacts artifacts: 'mynewfile1.txt', followSymlinks: false
             }
         }
